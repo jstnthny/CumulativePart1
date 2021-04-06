@@ -45,6 +45,6 @@ namespace CumulativeProjectPart1.Models
             return new MySqlConnection(ConnectionString);
         }
 
-        ///Test
+       
     }
 }

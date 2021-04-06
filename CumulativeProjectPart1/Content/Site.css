@@ -22,8 +22,11 @@ textarea {
 
 }
 
-h2, p {
-    color: orange;
-
-
+h2 {
+    border-bottom: 1px solid #000;
 }
+
+p {
+    padding: 1em 0;
+}
+

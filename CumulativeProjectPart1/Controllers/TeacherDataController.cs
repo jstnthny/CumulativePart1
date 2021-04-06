@@ -52,14 +52,16 @@ namespace CumulativeProjectPart1.Controllers
             //Loop Through each row 
             while(ResultSet.Read())
             {
+
+                //Access the data in the Teachers table
                 int TeacherId = (int)ResultSet["teacherid"];
                 string TeacherFname = (string)ResultSet["teacherfname"];
                 string TeacherLname = (string)ResultSet["teacherlname"];
                 string EmployeeNumber = (string)ResultSet["employeenumber"];
                 DateTime HireDate = (DateTime)ResultSet["hiredate"];
                 decimal Salary = (decimal)ResultSet["salary"];
-        
 
+               
                 Teacher NewTeacher = new Teacher();
                 NewTeacher.TeacherId = TeacherId;
                 NewTeacher.TeacherFname = TeacherFname;
@@ -102,8 +104,10 @@ namespace CumulativeProjectPart1.Controllers
             //Gather Result Set of Query into a variable
             MySqlDataReader ResultSet = cmd.ExecuteReader();
 
+            //Loops through the rows
             while (ResultSet.Read())
             {
+                //Accesses the columns in the teachers table
                 int TeacherId = (int)ResultSet["teacherid"];
                 string TeacherFname = (string)ResultSet["teacherfname"];
                 string TeacherLname = (string)ResultSet["teacherlname"];
@@ -118,6 +122,9 @@ namespace CumulativeProjectPart1.Controllers
                 NewTeacher.HireDate = HireDate;
                 NewTeacher.Salary = Salary;
             }
+
+            //Close Connection
+            Conn.Close();
 
             return NewTeacher;
         }
