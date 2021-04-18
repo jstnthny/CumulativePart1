@@ -1,0 +1,104 @@
+﻿
+@{
+    ViewBag.Title = "New";
+}
+
+<h2>New Author</h2>
+<form method="POST" action="/Teacher/Create" name="newTeacher">
+    <div>
+        <label for="TeacherFname">First Name:</label>
+        <input type="text" id="TeacherFname" name="TeacherFname" />
+    </div>
+    <div>
+        <label for="TeacherLname">Last Name:</label>
+        <input type="text" id="TeacherLname" name="TeacherLName" />
+    </div>
+    <div>
+        <label for="EmployeeNumber">Employee Number:</label>
+        <input type="text" id="EmployeeNumber" name="EmployeeNumber" />
+    </div>
+    <div>
+        <label for="HireDate">Hire Date:</label>
+        <input type="datetime" id="HireDate" name="HireDate" />
+    </div>
+    <div>
+        <label for="Salary">Salary:</label>
+        <input type="number" id="Salary" name="Salary" step=".01" />
+    </div>
+    <div>
+        <input type="submit" value="Create New Teacher">
+    </div>
+</form>
+
+<script>
+    window.onload = function () {
+
+        var formHandle = document.forms.newTeacher;
+
+        formHandle.onsubmit = processForm;
+
+
+   
+        function processForm() {
+
+            alert("Heello");
+            //Collecting values of inputs of new teachers from the user
+            var teacherFirstName = document.getElementById("TeacherFname").value;
+            var teacherLastName = document.getElementById("TeacherLname").value;
+            var teacherEmployeeNum = document.getElementById("EmployeeNumber").value;
+            var teacherHireDate = document.getElementById("HireDate").value;
+            var teacherSalary = document.getElementById("Salary").value;
+
+            var employeeNumFormat = /T\d\d\d/;
+
+            //Form Validation
+
+            if (teacherFirstName === "" || teacherFirstName === null) {
+                alert("First Name cannot be left blank");
+
+                return false;
+
+            } else if (teacherLastName === "" || teacherLastName === null) {
+
+                alert("Last Name cannot be left blank");
+
+                return false;
+
+            } else if (teacherEmployeeNum === "" || teacherEmployeeNum === null || teacherEmployeeNum.test(employeeNumFormat) {
+
+                alert("Teacher Employee number cannot be left blank");
+
+                return false;
+
+            } else if (teacherHireDate === "" || teacherHireDate === null) {
+
+                alert("The teachers hire date cannot be left blank");
+
+            } else if (teacherSalary === "" || teacherSalary === null) {
+
+                alert("The teachers salary cannot be left blank");
+
+            } else {
+
+                return true;
+            }
+
+
+
+        }
+
+
+    }
+
+   
+
+
+
+
+</script>
+
+
+
+
+
+

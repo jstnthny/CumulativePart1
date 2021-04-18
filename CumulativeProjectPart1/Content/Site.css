@@ -30,3 +30,19 @@ p {
     padding: 1em 0;
 }
 
+nav{
+    overflow: hidden;
+    margin-bottom: 30px;
+}
+
+.navlink{
+       
+       float: right;
+      
+
+}
+
+.deletelink{
+    float: left;
+    color: #ff0000;
+}

@@ -5,11 +5,15 @@
 
 
 
-<a class="navlink" href="/Teacher/List">Back to Teachers</a>
+
 
 
     <h2>@Model.TeacherFname @Model.TeacherLname</h2>
     <div id="containershow">
+        <nav style="overflow: hidden">
+            <a class="navlink" href="/Teacher/List" style="float: left">Back to Teachers</a>
+            <a class="deletelink" href="/Teacher/DeleteConfirm/@Model.TeacherId" style="float:right; color: #ff0000;">Delete</a>
+        </nav>
         <p><strong>Employee Number: </strong>@Model.EmployeeNumber</p>
         <p><strong>Hire Date: </strong> @Model.HireDate</p>
         <p><strong>Salary: </strong> @Model.Salary</p>
