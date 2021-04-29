@@ -1,0 +1,36 @@
+﻿@model CumulativeProjectPart1.Models.Teacher
+@{
+    ViewBag.Title = "Update";
+}
+
+
+<h2>Update Teacher</h2>
+<nav style="overflow: hidden">
+    <a class="navlink" href="/Teacher/Show/@Model.TeacherId" style="float: left">Back</a>
+    <a class="deletelink" href="/Teacher/DeleteConfirm/@Model.TeacherId" style="float:right; color: #ff0000;">Delete</a>
+</nav>
+<form method="POST" action="/Teacher/Update/@Model.TeacherId" name="newTeacher">
+    <div>
+        <label for="TeacherFname">First Name:</label>
+        <input type="text" id="TeacherFname" name="TeacherFname" value="@Model.TeacherFname" />
+    </div>
+    <div>
+        <label for="TeacherLname">Last Name:</label>
+        <input type="text" id="TeacherLname" name="TeacherLName" value="@Model.TeacherLname" />
+    </div>
+    <div>
+        <label for="EmployeeNumber">Employee Number:</label>
+        <input type="text" id="EmployeeNumber" name="EmployeeNumber" value="@Model.EmployeeNumber" />
+    </div>
+    <div>
+        <label for="HireDate">Hire Date:</label>
+        <input type="datetime" id="HireDate" name="HireDate" value="@Model.HireDate" />
+    </div>
+    <div>
+        <label for="Salary">Salary:</label>
+        <input type="number" id="Salary" name="Salary" step=".01" value="@Model.Salary" />
+    </div>
+    <div>
+        <input type="submit" value=Update Teacher">
+    </div>
+</form>

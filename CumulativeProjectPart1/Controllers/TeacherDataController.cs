@@ -102,7 +102,8 @@ namespace CumulativeProjectPart1.Controllers
 
             //SQL QUERY
 
-            cmd.CommandText = "SELECT * FROM Teachers WHERE teacherid = " + id;
+            cmd.CommandText = "SELECT * FROM Teachers WHERE teacherid = @id";
+            cmd.Parameters.AddWithValue("@id", id);
 
             //Gather Result Set of Query into a variable
             MySqlDataReader ResultSet = cmd.ExecuteReader();
@@ -187,6 +188,37 @@ namespace CumulativeProjectPart1.Controllers
             cmd.Parameters.AddWithValue("@Employeenumber", Newteacher.EmployeeNumber);
             cmd.Parameters.AddWithValue("@HireDate", Newteacher.HireDate);
             cmd.Parameters.AddWithValue("@Salary", Newteacher.Salary);
+            cmd.Prepare();
+
+            cmd.ExecuteNonQuery();
+
+            Conn.Close();
+
+        }
+
+        public void UpdateTeacher(int id, [FromBody]Teacher TeacherInfo)
+        {
+
+            //Create an instance of a connection
+            MySqlConnection Conn = School.AccessDatabase();
+
+            //Open the connection between the web server and database
+
+            Conn.Open();
+
+            //Establish a new command (query) for the database
+
+            MySqlCommand cmd = Conn.CreateCommand();
+
+            //SQL QUERY
+
+            cmd.CommandText = "UPDATE teachers set teacherfname=@teacherfname, teacherlname=@teacherlname, employeenumber=@employeenumber, hiredate=@hiredate, salary=@salary WHERE teacherid = @TeacherId";
+            cmd.Parameters.AddWithValue("@TeacherFname", TeacherInfo.TeacherFname);
+            cmd.Parameters.AddWithValue("@TeacherLname",TeacherInfo.TeacherLname);
+            cmd.Parameters.AddWithValue("@Employeenumber", TeacherInfo.EmployeeNumber);
+            cmd.Parameters.AddWithValue("@HireDate", TeacherInfo.HireDate);
+            cmd.Parameters.AddWithValue("@Salary", TeacherInfo.Salary);
+            cmd.Parameters.AddWithValue("TeacherId", id);
             cmd.Prepare();
 
             cmd.ExecuteNonQuery();
